@@ -1,1 +1,1 @@
-# digicam
+# DigiCam project IEEE
