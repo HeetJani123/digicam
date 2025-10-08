@@ -1,1 +1,81 @@
-vgb
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Camera Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>My Digital Camera Photos</h1>
+</header>
+
+<main class="gallery">
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200.png?text=Cityscape" alt="A bustling cityscape at night">
+        <div class="caption">Cityscape</div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200.png?text=Nature+Trail" alt="A serene nature trail in the woods">
+        <div class="caption">Nature Trail</div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200.png?text=Architecture" alt="Modern architectural building">
+        <div class="caption">Architecture</div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200.png?text=Beach+Sunset" alt="A beautiful sunset over the beach">
+        <div class="caption">Beach Sunset</div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200.png?text=Mountain+Peak" alt="A majestic mountain peak">
+        <div class="caption">Mountain Peak</div>
+    </div>
+    <div class="gallery-item">
+        <img src="https://via.placeholder.com/300x200.png?text=Forest+Path" alt="A path through a dense forest">
+        <div class="caption">Forest Path</div>
+    </div>
+</main>
+
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+</div>
+
+<footer>
+    <p>&copy; 2025 My Photo Gallery</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.lightbox .close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                const imgSrc = item.querySelector('img').src;
+                const imgAlt = item.querySelector('img').alt;
+                lightboxImg.src = imgSrc;
+                lightboxImg.alt = imgAlt;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
